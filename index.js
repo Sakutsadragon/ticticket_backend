@@ -8,11 +8,11 @@ require("dotenv").config();
 
 // CORS configuration
 const corsOptions = {
-    origin: "https://ticticket-frontend-juzvbhz8p-sakutsadragons-projects.vercel.app", // Your frontend URL
+    origin: "https://ticticket-frontend-juzvbhz8p-sakutsadragons-projects.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, // If you need to allow cookies
-    optionsSuccessStatus: 204 // For legacy browsers that return 200 for successful OPTIONS requests
+    allowedHeaders: ["Content-Type", "Authorization", "x-access-token", "Origin", "Accept"],
+    credentials: true,
+    optionsSuccessStatus: 204
 };
 
 app.use(cors(corsOptions));
