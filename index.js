@@ -5,15 +5,17 @@ const userRoutes = require("./routes/userRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 require("dotenv").config();
+
+// CORS configuration
 const corsOptions = {
-    origin: "https://ticticket-frontend.vercel.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE", 
+    origin: "https://ticticket-frontend-juzvbhz8p-sakutsadragons-projects.vercel.app", 
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], 
+    allowedHeaders: ["Content-Type", "Authorization"], 
     credentials: true, 
-    optionsSuccessStatus: 204 ,
+    optionsSuccessStatus: 204 
 };
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/autha", adminRoutes);
